@@ -20,16 +20,16 @@ public class Main
         
         while(top<=bottom && left<=right)
         {
-            if(dir==0)
+            if(dir==0)						//for top
             {
-                for(int i=left;i<=right;i++)
+                for(int i=left;i<=right;i++)					
                 {
                     res[index++]=A[top][i];
                     
                 }
                 top++;
             }
-            if(dir==1)
+            if(dir==1)						//for right
             {
                 for(int i=top;i<=bottom;i++)
                 {
@@ -37,7 +37,7 @@ public class Main
                 }
                 right--;
             }
-            if(dir==2)
+            if(dir==2)						//for bottom
             {
                 for(int i=right;i>=left;i--)
                 {
@@ -45,7 +45,7 @@ public class Main
                 }
                 bottom--;
             }
-            if(dir==3)
+            if(dir==3)						//for left
             {
                 for(int i=bottom;i>=top;i--)
                 {
