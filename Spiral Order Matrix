@@ -1,0 +1,74 @@
+Question:
+----------
+1 2 3
+4 5 6
+7 8 9
+
+o/p:
+1 2 3 6 9 8 7 4 5
+
+Program:
+---------
+import java.util.*;
+public class Main
+{
+     public static int[] spiralOrder(final int[][] A) 
+    {
+        int top=0 , bottom=A.length-1 , left=0 , right=A[0].length-1;
+        int dir=0;
+        int res[]=new int[((A.length)*(A[0].length))];int index=0;
+        
+        while(top<=bottom && left<=right)
+        {
+            if(dir==0)
+            {
+                for(int i=left;i<=right;i++)
+                {
+                    res[index++]=A[top][i];
+                    
+                }
+                top++;
+            }
+            if(dir==1)
+            {
+                for(int i=top;i<=bottom;i++)
+                {
+                    res[index++]=A[i][right];
+                }
+                right--;
+            }
+            if(dir==2)
+            {
+                for(int i=right;i>=left;i--)
+                {
+                    res[index++]=A[bottom][i];
+                }
+                bottom--;
+            }
+            if(dir==3)
+            {
+                for(int i=bottom;i>=top;i--)
+                {
+                    res[index++]=A[i][left];
+                }
+                left++;
+            }
+            
+            dir=(dir+1)%4;
+            
+        }
+        
+        return res;
+        
+    }
+	public static void main(String[] args) 
+	{
+	    int a[][]={{1,2,3},{4,5,6},{7,8,9}};
+	    int spiral[]=spiralOrder(a);
+	    for (int i=0;i<spiral.length;i++)
+	       {
+	           System.out.print(spiral[i]+" ");
+	       }
+	    
+	}
+}
